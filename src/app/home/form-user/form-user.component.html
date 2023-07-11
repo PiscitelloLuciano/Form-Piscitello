@@ -1,0 +1,77 @@
+<form [formGroup]="userForm" class="row g-3">
+  <div class="col-md-6">
+    <label for="inputName4" class="form-label">Nombre</label>
+    <input
+      formControlName="name"
+      type="text"
+      class="form-control"
+      id="inputName4"
+      [class.is-invalid]="nameControl.touched && nameControl.invalid"
+    />
+    <span class="invalid-feedback" *ngIf="nameControl.hasError('minlength')"
+      >El campo debe tener al menos
+      {{nameControl.errors?.['minlength']?.requiredLength}} caracteres</span
+    >
+    <span class="invalid-feedback" *ngIf="nameControl.hasError('required')"
+      >Este campo es requerido</span
+    >
+  </div>
+  <div class="col-md-6">
+    <label for="inputSurname4" class="form-label">Apellido</label>
+    <input
+      formControlName="surname"
+      type="text"
+      class="form-control"
+      id="inputSurname4"
+      [class.is-invalid]="surnameControl.touched && surnameControl.invalid"
+    />
+    <span class="invalid-feedback" *ngIf="surnameControl.hasError('required')"
+      >Este campo es requerido</span
+    >
+    <span class="invalid-feedback" *ngIf="surnameControl.hasError('minlength')"
+      >El campo debe tener al menos
+      {{surnameControl.errors?.['minlength']?.requiredLength}} caracteres</span
+    >
+  </div>
+  <div class="col-md-6">
+    <label for="inputEmail4" class="form-label">Email</label>
+    <input
+      formControlName="email"
+      type="email"
+      class="form-control"
+      id="inputEmail4"
+      [class.is-invalid]="emailControl.touched && emailControl.invalid"
+    />
+    <span class="invalid-feedback" *ngIf="emailControl.hasError('required')"
+      >Este campo es requerido</span
+    ><span class="invalid-feedback" *ngIf="emailControl.hasError('email')"
+      >Debe ingresar un correo electrónico</span
+    >
+  </div>
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Contraseña</label>
+    <input
+      formControlName="password"
+      type="password"
+      class="form-control"
+      id="inputPassword4"
+      [class.is-invalid]="passwordControl.touched && passwordControl.invalid"
+    />
+    <span class="invalid-feedback" *ngIf="passwordControl.hasError('required')"
+      >Este campo es requerido</span
+    >
+    <span class="invalid-feedback" *ngIf="passwordControl.hasError('minlength')"
+      >La contraseña debe tener al menos
+      {{passwordControl.errors?.['minlength']?.requiredLength}} caracteres</span
+    >
+    <span class="invalid-feedback" *ngIf="passwordControl.hasError('maxlength')"
+      >La contraseña tiene un máximo de
+      {{passwordControl.errors?.['maxlength']?.requiredLength}} caracteres</span
+    >
+  </div>
+  <div class="col-12">
+    <button (click)="onSave()" type="submit" class="btn btn-primary">
+      Enviar
+    </button>
+  </div>
+</form>
